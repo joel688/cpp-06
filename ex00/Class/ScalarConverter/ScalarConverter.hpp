@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-// try catch exception of stoi [] stof stod | std::invalid_argument ... watch doc
+// try catch exception of stoi [] stof stod | std::invalid_argument ... watch doc | idea : do abstrat exception and legacy for special 
 
 class ScalarConverter
 {
