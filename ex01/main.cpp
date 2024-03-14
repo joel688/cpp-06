@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/14 08:29:21 by joakoeni          #+#    #+#             */
+/*   Updated: 2024/03/14 08:29:36 by joakoeni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./Class/ScalarConverter/ScalarConverter.hpp"
 #include "./Class/Serializer/Serializer.hpp"
-
-
 
 int main()
 {

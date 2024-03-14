@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/14 08:28:27 by joakoeni          #+#    #+#             */
+/*   Updated: 2024/03/14 08:28:32 by joakoeni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP
 
 #include <iostream>
 #include "../../Data.h"
-
-// try catch exception of stoi [] stof stod | std::invalid_argument ... watch doc | idea : do abstrat exception and legacy for special 
 
 class Serializer
 {
