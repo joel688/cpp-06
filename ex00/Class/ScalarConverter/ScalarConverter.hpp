@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 08:27:24 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/14 08:27:36 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:50:08 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
+#include <sstream>
 
 class ScalarConverter
 {
