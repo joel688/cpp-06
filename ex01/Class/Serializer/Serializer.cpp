@@ -6,7 +6,7 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 08:28:39 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/14 08:28:41 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:06:44 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ Serializer& Serializer::operator=(const Serializer& src)
 
 // ----------Members_Functions----------
 
-uintptr_t Serializer::serialize(Data *ptr)
+unsigned long Serializer::serialize(Data *ptr)
 {
-  return(reinterpret_cast< uintptr_t>(ptr));
+  return(reinterpret_cast<unsigned long>(ptr));
 }
 
-Data *Serializer::deserialize(uintptr_t raw)
+Data *Serializer::deserialize(unsigned long raw)
 {
   return(reinterpret_cast<Data*>(raw));
 }
