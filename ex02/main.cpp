@@ -6,10 +6,11 @@
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 08:31:59 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/14 08:32:01 by joakoeni         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:12:21 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
 #include "./Class/Base/Child/A/A.hpp"
 #include "./Class/Base/Child/B/B.hpp"
 #include "./Class/Base/Child/C/C.hpp"

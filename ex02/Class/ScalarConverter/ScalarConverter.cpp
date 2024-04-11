@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joakoeni <joakoeni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 08:30:41 by joakoeni          #+#    #+#             */
-/*   Updated: 2024/03/14 08:30:44 by joakoeni         ###   ########.fr       */
+/*   Created: 2024/03/14 08:27:41 by joakoeni          #+#    #+#             */
+/*   Updated: 2024/04/11 14:49:22 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,92 +50,78 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src)
 
 void  ScalarConverter::to_char(const std::string &var)
 {
-  try
-  {
-    int i = 0;
-    if(std::stoi(var) == std::stof(var))
-      i = std::stoi(var);
-    if(i <= 32 || i >= 127)
-      std::cout << "char: Non displayable" << std::endl;
-    else
-      std::cout << "char: '" << (char)i << "'" << std::endl;
-  }
-  catch (const std::exception& e)
+  std::istringstream iss(var);
+  int i;
+  if (!(iss >> i))
   {
     std::cout << "An error occured while casting to char." << std::endl;
+    return;
   }
-  return;
+  if(i <= 32 || i >= 127)
+    std::cout << "char: Non displayable" << std::endl;
+  else
+    std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
 }
 
 void ScalarConverter::to_int(const std::string &var)
 {
-  try
-  {
-    int i = std::stoi(var);
-    std::cout << "int: " << i << std::endl;
-  }
-  catch (const std::exception& e)
+  std::istringstream iss(var);
+  int i;
+  if (!(iss >> i))
   {
     std::cout << "An error occured while casting to int." << std::endl;
+    return;
   }
-  return;
+  std::cout << "int: " << i << std::endl;
 }
 
 void ScalarConverter::to_float(const std::string &var)
 {
-  try
-  {
-    float f = std::stof(var);
-    std::cout << "float: " << f;
-    if (f == std::stoi(var))
-      std::cout << ".0f";
-    std::cout << std::endl;
-  }
-  catch (const std::exception& e)
+  std::istringstream iss(var);
+  float f;
+  if (!(iss >> f))
   {
     std::cout << "An error occured while casting to float." << std::endl;
+    return;
   }
-  return;
+  std::cout << "float: " << f;
+  if (f == static_cast<float>(static_cast<int>(f)))
+    std::cout << ".0f";
+  std::cout << std::endl;
 }
 
 void ScalarConverter::to_double(const std::string &var)
 {
-  try
-  {
-    double d = std::stod(var);
-    std::cout << std::setprecision(16) << "double: " << d; // max 16 digit before , + after ,
-    if(d == std::stoi(var))
-      std::cout << ".0";
-    std::cout << std::endl;
-  }
-  catch (const std::exception& e)
+  std::istringstream iss(var);
+  double d;
+  if (!(iss >> d))
   {
     std::cout << "An error occured while casting to double." << std::endl;
+    return;
   }
-  return;
+  std::cout << std::setprecision(16) << "double: " << d; // max 16 digit before , + after ,
+  if(d == static_cast<double>(static_cast<int>(d)))
+    std::cout << ".0";
+  std::cout << std::endl;
 }
 
 int ScalarConverter::nan_check(const std::string &var)
 {
-  std::string nan_s[] = {"-inf", "+inf", "nan", "-inff", "+inff", "nanf"};
+  const char* nan_s[] = {"-inf", "+inf", "nan", "-inff", "+inff", "nanf"};
   std::string to_print;
-  int i = 0;
-  while(i < 6)
+  for (int i = 0; i < 6; ++i)
   {
-    if(nan_s[i] == var)
+    if (var == nan_s[i])
     {
       to_print = nan_s[i % 3];
-      break;
+      std::cout << "char: impossible" << std::endl;
+      std::cout << "int: impossible" << std::endl;
+      std::cout << "float: " << to_print << "f" << std::endl;
+      std::cout << "double: " << to_print << std::endl;
+      return 1;
     }
-    i++;
   }
-  if(i == 6)
-    return (0);
-  std::cout << "char: impossible" << std::endl;
-  std::cout << "int: impossible" << std::endl;
-  std::cout << "float: " << to_print << "f" << std::endl;
-  std::cout << "double: " << to_print << std::endl;
-  return (1);
+  return 0;
 }
 
 void ScalarConverter::convert(const std::string var)
@@ -148,6 +134,3 @@ void ScalarConverter::convert(const std::string var)
   to_double(var);
   return;
 }
-// ----------Non_Members_Functions----------
-
-
